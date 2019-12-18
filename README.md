@@ -9,8 +9,8 @@ Working funcionalities:
  - Add, rename, delete Exercises
  - Start, stop Workout
  - Log Workout start-, end-time
- - Add notes to Workout
- - Add worksets to Workout
- - Save workout
+ - Add Workout note
+ - Add Workout worksets
+ - Save Workout
  - Save data to internal storage
  - Load data from internal storage
