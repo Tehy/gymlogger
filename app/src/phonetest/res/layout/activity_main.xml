@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="187dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            />
+        <Button
+            android:id="@+id/btn_start_straining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Start training"
+            />
+
+        <Button
+            android:id="@+id/btn_programs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+android:layout_marginVertical="15dp"
+            android:text="Training programs"
+            />
+
+
+
+        <Button
+            android:id="@+id/workouts_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Workouts"
+/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

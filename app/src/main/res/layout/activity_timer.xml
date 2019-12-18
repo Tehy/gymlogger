@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_stop"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="45dp"
+        app:fab_icon="@drawable/ic_stop"
+        />
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_play"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="45dp"
+        app:fab_icon="@drawable/ic_play"
+        />
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab_pause"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="45dp"
+        app:fab_icon="@drawable/ic_pause"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="10:00"
+        android:textSize="70sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_gravity="center_horizontal|center"
+        />
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/progress_countdown"
+        style="@style/Widget.MaterialProgressBar.ProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

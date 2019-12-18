@@ -1,0 +1,22 @@
+{
+  "programName": "new Program",
+  "startTime": {},
+  "trainingName": "new Training",
+  "workoutExerciseList": [
+    {
+      "name": "asd",
+      "worksetList": [
+        {
+          "rep": 5,
+          "set": 5,
+          "weight": 100
+        }
+      ]
+    }
+  ],
+  "workoutTimeArray": [
+    0,
+    2,
+    17
+  ]
+}
