@@ -1,12 +1,10 @@
 package com.example.gymlogger
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.programs_layout.view.*
 
@@ -46,7 +44,7 @@ class AdapterExercises(val exerciseList: ArrayList<Exercise>) : RecyclerView.Ada
                 s.selProgram=null
 
                 itemView.context.startActivity(intent) // GOTO ProgramsActivity for now
-                //TODO single exercise activity??
+                //TODO single exercise activity? / 8/4/20 what does this mean?
             }
         }
     }

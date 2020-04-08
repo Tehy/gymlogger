@@ -23,24 +23,14 @@ import java.time.LocalDateTime
 var s= Selection()
 var dataLoaded:Boolean=false
 
-
-
 // timedifference variables used in onPause onStop events
 var writeTime:Long=0
 val timeDelta=4000
 
 class MainActivity() : AppCompatActivity() {
 
-    //TODO ADD fabbutton workouts workout()
     //TODO ADD dialog to add workout manually
-    //TODO ADD startTime picker: date,time
-    //TODO ADD workoutTime picker: hours,minutes
-    //TODO ADD exerciseList picker: exerciseList vs emptyList
-
-
-    //TODO ADD workoutsviewworkoutworksets longclick->dialog 'delete last set'/'delete exercise'
-
-
+    //TODO FEATURE workoutsviewworkout editor view, pickers/edit items names/times/workouts
     // todo add log s to everything
     // todo add try catch to everything
 
@@ -49,45 +39,63 @@ class MainActivity() : AppCompatActivity() {
         Nuttin but a peanut / Aint nuttin to it but to do it
         Meh
         Weak
+        stars/dumbells/5?
      */
 
     /* TODO BUTTON workset history for activeWorkout exercise
         IF previous SAME training, IF previous SAME exercise
         IF  worksets,
          show worksets,
-         BUTTON copy worksets to current activeWorkout ?
-
+         BUTTON to copy worksets to current activeWorkout ?
+         8/4/20 no change.
      */
 
-    // TODO Feature REST TIME TIMER https://www.youtube.com/watch?v=xtElLuzjA0U
+    /* TODO Feature REST TIME TIMER https://www.youtube.com/watch?v=xtElLuzjA0U
+        8/4/20 no change.
+     */
 
-    // TODO Feature implement rearranging list. <- necessary?
+    /* TODO Feature implement rearranging list. <- necessary?
+        8/4/20 no change. Is necessary to arrange training order
+     */
 
-    // TODO Feature Workouts activity -> show workouts as list
-    // TODO Feature Workouts activity -> show workouts as list ->sort by program
-    // TODO Feature Workouts activity -> show workouts as list ->sort by training
+    /* TODO Feature Workouts sorting -> show workouts as list
+        sort by program
+        sort by training
+        8/4/20 no change
+     */
 
-    // TODO Feature Workouts activity -> show workouts in calendar
-    // TODO Feature Workouts activity -> show workouts in calendar -> color code different trainings
+    /* TODO Feature Workouts activity -> show workouts in calendar -> show workouts in calendar -> color code different trainings
+        8/4/20 no change.
+     */
 
-    // TODO Feature Workouts activity -> show workouts -> click to view workout?
-    // TODO Feature Workouts activity -> show workouts -> longclick to continue workout?
+    /* TODO Feature Workouts activity -> show workouts -> longclick to continue workout?
+        8/4/20 no change. necessary?
+     */
 
-    // TODO Feature activeworkoutExerciseView -> show last workout sets in active workout?
+    /* TODO Feature activeworkoutExerciseView -> show last workout sets in active workout?
+        8/4/20 no change. Useful
+     */
 
-    // TODO Settings
-    // TODO Settings kgs-pds
-    // TODO Settings light-dark mode
+    /* TODO Feature Settings
+        Settings kgs-pds
+        Settings light-dark mode
+        8/4/20 no change.
+     */
+    /* TODO deny button double clicks
+        8/4/20 no change.
+     */
 
-    // TODO deny button double clicks
+    /* TODO Feature Export workouts as csv?
+        8/4/20 no change.
+     */
 
-    // TODO Feature Export workouts as csv?
+    /* TODO ADD Feature Notes to Workout()
+        8/4/20 DONE
+     */
 
-    // TODO ADD Feature Notes to Workout()
-
-    // TODO ADD 'rp' rest-pause reps to workoutSet
-
-
+    /* TODO ADD 'rp' rest-pause reps to workoutSet
+        8/4/20 no change.
+     */
 
     /* TODO DATA WRITE activeWorkout -> CASE app close with activeWorkout!=null
         programName
@@ -95,12 +103,26 @@ class MainActivity() : AppCompatActivity() {
         workoutExerciseList
         worksets
         time
+        8/4/20 I think this is done? App loads with activeworkout!=null. Check datawriteread
     */
     /*
        TODO DATA READ activeWorkout -> CASE app closed with activeWorkout!=null
-
+        8/4/20 I think this is done? App loads with activeworkout!=null. Check datawriteread
     */
-    // TODO set SELECTOR NULL
+    /* TODO set SELECTORs NULL
+        8/4/20 what? App functions expectedly
+     */
+
+    /* TODO 8/4/20 ask to save activeworkout exercises
+        to programs/trainings/exerciselist on activeworkout exit
+        if activeworkout/exercises != programs/trainings/exerciselist
+    */
+
+    /* todo 8/4/20
+        BUGFIX
+        status: unconfirmed
+        description: App crashes with activeworkout==true if user changes training programs name, then  exits activeworkout
+    */
 
 override fun onPause() {
     super.onPause()
@@ -121,7 +143,7 @@ override fun onStop() {
         DataChangeLogger.setFalse()
     }
 }
-/*
+/* unuseful events
 override fun onResume() {
     super.onResume()
     Log.d("myTag", "Main onRESUME")
@@ -146,7 +168,10 @@ override fun onDestroy() {
 
 
 
-override fun onBackPressed() { // todo dialog if active wo, save/discard wo /no
+override fun onBackPressed() {
+/* todo dialog if active wo, save/discard wo /no
+    8/4/20 no change. App works fine without.
+ */
     Log.d("myTag", "Main onbackpress")
     finishAffinity()
 }
@@ -165,7 +190,7 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
     else{
         Log.d("myTag", "data already read!")
     }
-
+    // DEBUG flavor build
     if(Constant.type==Constant.Type.FLAVOR){
 
         save_test_btn.text="SAVE WO&&programs"
@@ -306,7 +331,10 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
                             Log.d("myTag", "'Start next workout' YES ")
                             mAlertDialog.dismiss()
 
-                            Workouts.activeWorkout = newWorkout //todo WATCH
+                            Workouts.activeWorkout = newWorkout
+                            /*todo WATCH
+                                8/4/20 what?
+                             */
 
                             setActiveWorkout(Workouts.workoutPlan!!.programName!!, Workouts.workoutPlan!!.nextTrainingName!!)
 
@@ -324,36 +352,26 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
                     }
                     // If workoutPlan nexttraining not in programList[progIndex].trainingList
                     else{
-                        /*
-                        Log.d("myTag", "1workoutPlan.nextTrainingName not in trainingList --> RUN selectAndStartWorkout(this)")
-                        Workouts.workoutPlan=null
-                        Log.d("myTag", "2workoutPlan.nextTrainingName not in trainingList --> RUN selectAndStartWorkout(this)")
-                        selectAndStartWorkout(this) // Start workout selection
-
+                        /* todo fix this regarding starting null value program/training
+                            8/4/20 Think this is fixed. No null value starts anymore.
                          */
-
-                        // todo fix this regarding starting null value program/training
                         Log.d("myTag", "11workoutPlan.programName not in programList --> RUN selectAndStartWorkout(this)")
                         Workouts.workoutPlan=null
                         activeWorkout=null
                         Log.d("myTag", "12workoutPlan.programName not in programList --> RUN selectAndStartWorkout(this)")
-                        //finish()
-                        //val intent=Intent(this, MainActivity::class.java)
-                        //startActivity(intent)
                         selectAndStartWorkout(this)
 
                     }
                 }
                 // If workoutPlan program not in programList
                 else{
-                    // todo fix this regarding starting null value program/training
+                    /* todo fix this regarding starting null value program/training
+                        8/4/20 Think this is fixed. No null value starts anymore.
+                    */
                     Log.d("myTag", "21workoutPlan.programName not in programList --> RUN selectAndStartWorkout(this)")
                     Workouts.workoutPlan=null
                     activeWorkout=null
                     Log.d("myTag", "22workoutPlan.programName not in programList --> RUN selectAndStartWorkout(this)")
-                    //finish()
-                    //val intent=Intent(this, MainActivity::class.java)
-                    //startActivity(intent)
                     selectAndStartWorkout(this) // Start workout selection
 
                 }
@@ -365,26 +383,23 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
 
         } else if (activeWorkout != null) { // case workout is active
 
-            // todo fix this regarding starting null value program/training
+            /* todo fix this regarding starting null value program/training
+                8/4/20 Think this is fixed. No null value starts anymore.
+            */
             if(activeWorkout!!.programName.isNullOrEmpty()){
                 selectAndStartWorkout(this)
-                //activeWorkout=null
-                //finish()
-                //val intent=Intent(this, MainActivity::class.java)
-                //startActivity(intent)
             }
             else if(activeWorkout!!.trainingName.isNullOrEmpty()){
                 selectAndStartWorkout(this)
-                //activeWorkout=null
-                //finish()
-                //val intent=Intent(this, MainActivity::class.java)
-                //startActivity(intent)
             }
 
 
             val title = "Continue with started workout?"
             val mDialog = LayoutInflater.from(this)
-                .inflate(layout.dialog_ask_yes_no_stop, null) // TODO change inflater layout -> 2 button Y/N('continue'/'stop') layout?
+                .inflate(layout.dialog_ask_yes_no_stop, null)
+            /* TODO change inflater layout -> 2 button Y/N('continue'/'stop') layout?
+                8/4/20 current yes/no/stop layout is working. altough misclick to "stop workout" can happen
+             */
             val mBuilder = AlertDialog.Builder(this)
                 .setView(mDialog)
                 .setTitle(title)
@@ -416,22 +431,6 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
                 else{
                     Workouts.workoutPlan=null
                 }
-
-                /*
-                if(Workouts.workoutPlan==null){
-                    if(!(activeWorkout!!.programName!!.isNullOrBlank() || activeWorkout!!.trainingName!!.isNullOrEmpty())){
-                        Workouts.workoutPlan=WorkoutPlan()
-                        updateWorkoutPlan()
-                    }
-
-                }
-                else{
-                    if(!(activeWorkout!!.programName!!.isNullOrBlank() || activeWorkout!!.trainingName!!.isNullOrEmpty())){
-                        updateWorkoutPlan()
-                    }
-                }
-
-                 */
 
                 activeWorkout=null
 

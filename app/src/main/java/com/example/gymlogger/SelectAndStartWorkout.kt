@@ -97,7 +97,10 @@ fun selectTraining(context: Context, intent:Intent, programName:String){
         if (Programs.programList[programIndex].trainingList.size==1){           // case 1 training
             trainingName=Programs.programList[programIndex].trainingList[0].name
 
-            // make sure workout is set before checking exercises // todo remove duplicate check
+            // make sure workout is set before checking exercises
+            /*todo remove duplicate check
+                8/4/20 no change. unconfirmed duplicate
+             */
             if(getProgramIndex(programName)>=0){
                 if(getTrainingIndex(getProgramIndex(programName), trainingName)>=0){
 
@@ -149,7 +152,10 @@ fun selectTraining(context: Context, intent:Intent, programName:String){
                     )
 
                     // make sure workout is set before checking exercises
-                    if(getProgramIndex(programName)>=0){ //todo remove duplicate check
+                    if(getProgramIndex(programName)>=0){
+                        /*todo remove duplicate check
+                            8/4/20 no change. unconfirmed duplicate
+                        */
                         if(getTrainingIndex(getProgramIndex(programName), trainingName)>=0){
 
                             val exList = getExerciseList(programName, trainingName)
@@ -175,7 +181,10 @@ fun ifExerciseListCloneToWorkoutAndStart(context:Context, intent:Intent,exArray:
     Workouts.activeWorkout!!.programName=programName
     Workouts.activeWorkout!!.trainingName=trainingName
 
-    if(!(exArray.isNullOrEmpty())){     // TODO REMOVE LOGIC FROM FUNCTION
+    if(!(exArray.isNullOrEmpty())){
+        /* TODO remove logic from function
+            8/4/20 no change.
+         */
         for(i in exArray){
             Workouts.activeWorkout!!.addExerciseToWorkout(i.name)
 
@@ -187,8 +196,14 @@ fun ifExerciseListCloneToWorkoutAndStart(context:Context, intent:Intent,exArray:
     }
 
 }
-fun cloneExerciseListToWorkoutExerciseList(exList:ArrayList<Exercise>){ // TODO FUNCTION NOT USED
-    if(!(exList.isNullOrEmpty())){     // TODO REMOVE LOGIC FROM FUNCTION
+fun cloneExerciseListToWorkoutExerciseList(exList:ArrayList<Exercise>){
+    /* TODO FUNCTION NOT USED
+        8/4/20 no change. unconfirmed unused.
+     */
+    if(!(exList.isNullOrEmpty())){
+        /* TODO remove logic from function
+            8/4/20 no change.
+         */
         for(i in exList){
             Workouts.activeWorkout!!.addExerciseToWorkout(i.name)
 

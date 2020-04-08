@@ -62,23 +62,6 @@
                 android:text="weight"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <!--todo add x icons between textviews 'separators'-->
-            <!--todo redo clickable textviews as wheelpickers -->
-            <!--
-            <Button
-                android:id="@+id/plus_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="+" />
-            <Button
-                android:id="@+id/minus_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="-" />
-                -->
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

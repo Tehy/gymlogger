@@ -11,7 +11,10 @@ import com.example.gymlogger.Programs.programList
 
 import kotlinx.android.synthetic.main.activity_programs.*
 
-class exerciseSingleActivity : AppCompatActivity() { //TODO is this used?
+class exerciseSingleActivity : AppCompatActivity() {
+        /*TODO is this used?
+            8/4/20 no change.
+         */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

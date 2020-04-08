@@ -25,23 +25,17 @@ class AdapterWorkouts(val workoutsList: ArrayList<Workout>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-
+        // workout list position
         val wlp = Workouts.workoutsList[position]
 
         val training    = wlp.trainingName!!
         val dayOfWeek   = wlp.workoutTime.get("dayofweek")
         val date        = wlp.workoutTime.get("date")       // TODO redo year '2019'->'19'
 
+        // TODO 8/4/20 not in use?
         val workoutTime =   "${wlp.workoutTime["hours"]}:" +
                             "${wlp.workoutTime["minutes"]}:" +
                             "${wlp.workoutTime["seconds"]} " // todo remove TEST seconds
-/*
-        val startTime="${String.format("%02d", wlp.startTimeHour.toString())}:" +
-                "${String.format("%02d", wlp.startTimeMinute.toString())}:" +
-                "${String.format("%02d", wlp.startTimeSecond.toString())} " // todo remove after TEST ing
-
- */
-
 
         if(!(wlp.notes.isNullOrBlank())){
             holder.noteImg.setImageResource(R.drawable.ic_insert_comment_blue)
@@ -56,10 +50,6 @@ class AdapterWorkouts(val workoutsList: ArrayList<Workout>) : RecyclerView.Adapt
         holder.date.text        = date.toString()
         holder.training.text    = training
 
-
-        //holder.workoutTime.text = workoutTime // todo remove comments after list ascend/descend fix
-
-        // todo add textview to CARD to show workout time in hours:minutes
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -76,32 +66,26 @@ class AdapterWorkouts(val workoutsList: ArrayList<Workout>) : RecyclerView.Adapt
         val date        = itemView.dateTV as TextView
         val dayofweek   = itemView.dayofweekTV as TextView
         val training    = itemView.trainingTV as TextView
-        //val workoutTime = itemView.workout_timeTV as TextView
         val startTime = itemView.start_timeTV as TextView
         val noteImg= itemView.noteImg as ImageView
 
         init {
             itemView.setOnLongClickListener {
                 //itemView.context
-                // todo add feature : ask dialog-> continue / delete / change data
+                /* todo add feature : ask dialog-> continue / delete / change data -> select data etc..
+                    8/4/20 no change
+                 */
                 confDel(itemView.context, "workouts",adapterPosition)
                 true
             }
 
             itemView.setOnClickListener{
-
-                // todo show workoutDate, workoutTime, exercises+worksets
-
                 val intent= Intent(itemView.context, WorkoutsViewWorkoutWorksetsActivity::class.java)
-
                 intent.putExtra("adapterpos",adapterPosition)
                 intent.putExtra("trainingName",training.text)
-                //intent.putExtra("wot",Workouts.workoutsList[adapterPosition].workoutTime["hours"].toString()+":"+Workouts.workoutsList[position].workoutTime["minutes"].toString())
                 intent.putExtra("wot",Workouts.workoutsList[adapterPosition].workoutTime["hours"].toString()+":"+Workouts.workoutsList[adapterPosition].workoutTime["minutes"].toString())
 
-
                 s.selWorkout=adapterPosition
-
                 itemView.context.startActivity(intent)
             }
 

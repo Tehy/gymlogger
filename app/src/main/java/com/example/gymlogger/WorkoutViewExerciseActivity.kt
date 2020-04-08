@@ -62,7 +62,10 @@ class WorkoutViewExerciseActivity : AppCompatActivity() {
         // make variable for selected exercise
         var exercise: Exercise=Workouts.activeWorkout!!.workoutExerciseList[s.selexercise!!]
 
-        //add workset exampledata EXAMPLE DATA EXAMPLEDATA //todo remove example data
+        //add workset exampledata EXAMPLE DATA EXAMPLEDATA
+        /*todo remove example data
+            8/4/20 i was here.
+         */
         //exercise.worksetList.add(Workset(5,5,100))
 
         // setup recyclerview to show worksets of selected exercise
@@ -105,15 +108,9 @@ class WorkoutViewExerciseActivity : AppCompatActivity() {
         mDialog1.add_btn.setOnClickListener {
             mAlertDialog1.dismiss()
 
-            // TODO add default 1 to 'sets' ? or sets can be null ??
-            // todo add try block?? input type number, can anything else be input ??
             val tempSet: String = mDialog1.setET.text.toString()  // read input
-
             val tempRep: String = mDialog1.repET.text.toString()
-
             val tempWeight: String = mDialog1.weightET.text.toString()
-
-
 
             if (tempSet.length>0&&tempRep.length>0&&tempWeight.length>0) { // filter input
                 newWorkset.set=tempSet.toInt()
@@ -138,17 +135,7 @@ class WorkoutViewExerciseActivity : AppCompatActivity() {
                 toastCenterShort(this, "Name has to be 1-20 characters long")
             }
         }
-
     }
-
-                //if (objName.length > 0 && objName.length < 20) {                  // filter input //TODO WORKSET WHEELPICKER !!
-                /*
-                val toast = Toast.makeText(this, msgSuccessfullAdd, Toast.LENGTH_SHORT)
-                toast.setGravity(Gravity.CENTER, 0, 0)
-                toast.show()
-                finish()
-                startActivity(intent)
-                 */
 }
 
 

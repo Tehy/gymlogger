@@ -11,7 +11,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <!--todo ontouchable ?? hhwai? -->
+    <!--todo rename ontouchable ?? 8/4/20 no change. -->
 
     <LinearLayout
         android:id="@+id/linearTextLayout"

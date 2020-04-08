@@ -18,7 +18,6 @@ class AdapterWorkoutViewExerciseWorkset(val worksetList: ArrayList<Workset>) : R
         holder.weight.text = workset.weight.toString()
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterWorkoutViewExerciseWorkset.ViewHolder {
         val v = LayoutInflater.from(parent.context)
         val view = v.inflate(R.layout.workout_view_exercise_card, parent, false)
@@ -34,19 +33,19 @@ class AdapterWorkoutViewExerciseWorkset(val worksetList: ArrayList<Workset>) : R
         val reps = itemView.repsTV as TextView
         val weight = itemView.weightTV as TextView
 
-        init { //TODO does this list have clicklisteners ?? YES
-                //todo longclick askToDel/confDel
-                // todo click to open dialog -> spinners sets|reps|weight
+        init {
+                /*TODO
+                   longclick askToDel or confDel ?
+                   click to open dialog -> spinners sets|reps|weight
+                   dialog to edit workset?
+                    8/4/20 no change, need to rethink data modify functionality of finished workouts
+                 */
+
             itemView.setOnLongClickListener {
-                confDel(itemView.context, "workset", adapterPosition) // TODO dialog to edit workset??
+                confDel(itemView.context, "workset", adapterPosition)
                 true
             }
             itemView.setOnClickListener{
-
-                //val intent= Intent(itemView.context, WorkoutViewExerciseActivity::class.java)
-                //s.selWorkout=adapterPosition
-                //intent.putExtra("workoutName", textName.text)
-                //itemView.context.startActivity(intent) // GOTO ProgramsActivity for now
                 worksetEditPicker(itemView.context, adapterPosition)
 
             }

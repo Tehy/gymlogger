@@ -42,7 +42,6 @@ class AdapterWorkoutStart(val workoutExerciseList: ArrayList<Exercise>) : Recycl
                 s.selexercise=adapterPosition
                 intent.putExtra("workoutName", exerciseName.text)
 
-
                 itemView.context.startActivity(intent) // GOTO ProgramsActivity for now
 
             }

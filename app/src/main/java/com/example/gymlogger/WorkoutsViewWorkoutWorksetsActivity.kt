@@ -68,13 +68,7 @@ class WorkoutsViewWorkoutWorksetsActivity : AppCompatActivity() {
 
         fabAddBtn.setOnClickListener{
             addToList("exercise to workout", this, adapterpos)
-
         }
-
-
-
-
-
     }
 }
 

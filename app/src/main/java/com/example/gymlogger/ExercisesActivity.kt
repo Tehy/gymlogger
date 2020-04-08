@@ -18,7 +18,10 @@ import kotlinx.android.synthetic.main.activity_programs.*
 import kotlinx.android.synthetic.main.dialog_rename_layout.view.*
 
 
-class exercisesActivity : AppCompatActivity() { //TODO rename exerciseActivity -> ExerciseActivity
+class exercisesActivity : AppCompatActivity() {
+    /*TODO rename exerciseActivity -> ExerciseActivity
+        8/4/20 no change
+     */
     override fun onPause() {
         super.onPause()
         Log.d("myTag", "exercises onPAUSE")
@@ -38,14 +41,7 @@ class exercisesActivity : AppCompatActivity() { //TODO rename exerciseActivity -
             DataChangeLogger.setFalse()
         }
     }
-    /*
-    override fun onResume() {
-        super.onResume()
-        Log.d("myTag", "Main onRESUME")
 
-    }
-
-     */
     override fun onBackPressed() {
 
         val intent= Intent(this, TrainingsActivity::class.java)
@@ -83,10 +79,13 @@ class exercisesActivity : AppCompatActivity() { //TODO rename exerciseActivity -
                     // display toast
                     toastCenterShort(this, "Click + to add exercise")
 
-                    //TODO SHOULD ADD DIALOG BE MANDATORY IF LIST EMPTY?
+                    /*TODO SHOULD ADD DIALOG BE MANDATORY IF LIST EMPTY?
+                        8/4/20 no change. probably not.
+                     */
                     //addToList("exercise", this) //add item, set s.selEcercise = 0 and reload page
                 }
                 /* TODO NOT IMPLEMENTED exercise SINGLE VIEW
+                    8/4/20 no change. Could be useful in changing worksets data
                 if (s.selexercise!=null){
                     exerciseName.text = programList[s.selProgram!!].trainingList[s.selTraining!!].exerciseList[s.selexercise].programName
                 }

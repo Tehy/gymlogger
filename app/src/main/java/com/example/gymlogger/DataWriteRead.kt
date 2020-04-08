@@ -11,9 +11,10 @@ val programsFile="programsFile"
 val workoutPlanFile="workoutPlanFile"
 val activeWorkoutFile = "activeWorkoutFile"
 
-
-fun DataWrite(context:Context, listOfDataToWrite:ArrayList<String>) { // TODO datawrite("dataChangedName")
-
+fun DataWrite(context:Context, listOfDataToWrite:ArrayList<String>) {
+/* TODO datawrite("dataChangedName")
+    8/4/20 why? datawrite([listOfDataToWrite]) works fine
+ */
     if(!(listOfDataToWrite.isNullOrEmpty())){
         for(i in listOfDataToWrite){
             when(i){
@@ -86,43 +87,6 @@ fun DataWrite(context:Context, listOfDataToWrite:ArrayList<String>) { // TODO da
             }
         }
     }
-
-    /*
-    if(!(Workouts.workoutsList.isNullOrEmpty()))
-    {
-        var gson = Gson()
-        var json = ""
-        for (i in Workouts.workoutsList) {
-            json = json.plus(gson.toJson(i)) + "\n"
-            //Log.d("myTag","JSON GSON === ${json}")
-        }
-        context.openFileOutput(fileName1, Context.MODE_PRIVATE).use {
-            it.write(json.toByteArray())
-        }
-
-    }
-    else{
-        Log.d("myTag", "WRITE ERROR workoutsList empty")
-    }
-    if(!(Programs.programList.isNullOrEmpty()))
-    {
-        var gson = Gson()
-        var json = ""
-        for (i in Programs.programList) {
-            json = json.plus(gson.toJson(i)) + "\n"
-            //Log.d("myTag","JSON GSON === ${json}")
-        }
-        context.openFileOutput(fileName2, Context.MODE_PRIVATE).use {
-            it.write(json.toByteArray())
-        }
-
-    }
-    else{
-        Log.d("myTag", "WRITE ERROR programList list empty")
-    }
-
-     */
-
 }
 
 fun DataRead(context:Context) {
@@ -198,7 +162,9 @@ fun DataRead(context:Context) {
                 Workouts.workoutPlan = wop
                 Log.d("myTag", "-->${workoutPlanFile} READ")
 
-                //TODO add updateworkoutplan() after dataread
+                /*TODO add updateworkoutplan() after dataread
+                    8/4/20 no change
+                 */
             }
             else{
                 Log.d("myTag", "GSON json == ${json} ")
@@ -225,9 +191,9 @@ fun DataRead(context:Context) {
                 file4.delete()
                 Log.d("myTag", "GSON ERROR ${activeWorkoutFile} DELETED")
             }
-
-
-            //TODO add updateworkoutplan() after dataread
+            /*TODO add updateworkoutplan() after dataread
+                8/4/20 no change
+             */
         }
     }
     else{

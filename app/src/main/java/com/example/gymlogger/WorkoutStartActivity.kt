@@ -27,8 +27,10 @@ import java.util.concurrent.TimeUnit
 
 class WorkoutStartActivity : AppCompatActivity() {
 
-    //TODO Feature, case workout length < 10 min workout is stopped -> ask to save/discard workout ??
-    //TODO  if workout length > 180min -> alert user to stop workout, dialog ask workout stop time.
+    /*TODO Feature, case workout length < 10 min workout is stopped -> ask to save/discard workout ??
+        if workout length > 180min -> alert user to stop workout, dialog ask workout stop time.
+        8/4/20 no change.
+     */
 
     override fun onStop() {
         super.onStop()
@@ -90,7 +92,9 @@ class WorkoutStartActivity : AppCompatActivity() {
 
                 saveWorkout(this) // Stops workout time, saves workout to Workouts.workoutsList, deletes "activeWorkoutFile"
 
-                // TODO IF workoutExerciseList != exerciseList ask to save additional workoutExercises to exerciseList ??
+                /* TODO IF workoutExerciseList != exerciseList ask to save additional workoutExercises to exerciseList ??
+                    8/4/20 DUPLICATE SIMILAR.
+                 */
                 Log.d("myTag","STOPPING WORKOUT program     == ${activeWorkout?.programName}")
                 Log.d("myTag","STOPPING WORKOUT training    == ${activeWorkout?.trainingName}")
 
@@ -120,7 +124,10 @@ class WorkoutStartActivity : AppCompatActivity() {
                         }
                         Log.d("myTag", "SAVED workoutExercise to exerciseList")
                         activeWorkout = null
-                        DataChangeLogger.alteredData["programList"]=true // todo MOVE DataChangeLogger.alteredData["programList"]=true <- this should be in ifExerciseListCloneToWorkoutAndStart()
+                        DataChangeLogger.alteredData["programList"]=true
+                        /* todo MOVE DataChangeLogger.alteredData["programList"]=true <- this should be in ifExerciseListCloneToWorkoutAndStart()
+                            8/4/20 no change.
+                         */
                         startActivity(intent)
                     }
                     mDialog2.no_btn.setOnClickListener {
@@ -145,7 +152,6 @@ class WorkoutStartActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
     }// onBackPressed END
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -154,7 +160,10 @@ class WorkoutStartActivity : AppCompatActivity() {
 
         val intent= Intent(this, MainActivity::class.java)
 
-        // check workouts program if false //TODO BUG SelectAndStartWorkout escapes to WorkoutStartActivity with null value
+        // check workouts program if false
+        /* TODO BUG SelectAndStartWorkout escapes to WorkoutStartActivity with null value
+            8/4/20 SOLVED.
+         */
         if(getProgramIndex(activeWorkout!!.programName!!)==-1){
             finish()
             startActivity(intent)
@@ -168,7 +177,10 @@ class WorkoutStartActivity : AppCompatActivity() {
         DataChangeLogger.alteredData["activeWorkout"]=true
         Log.d("myTag","DataChangeLogger.alteredData[\"activeWorkout\"] == ${DataChangeLogger.alteredData["activeWorkout"]}")
 
-        //programName.text="Workout exercises" // todo <-- bad naming, new layout?->clutter of layouts. what do? OK for now
+        //programName.text="Workout exercises"
+        /* todo <-- bad naming, new layout?->clutter of layouts. what do? OK for now
+            8/4/20 no change.
+         */
         trainingTV.text= activeWorkout!!.trainingName
         val startTime= "${activeWorkout!!.startTimeHour}:${activeWorkout!!.startTimeMinute}"
         workout_start_time.text=startTime
@@ -180,11 +192,12 @@ class WorkoutStartActivity : AppCompatActivity() {
 
         /*
         if(programList.isNullOrEmpty()) {
-            setContentView(R.layout.activity_workout_start)    // TODO if no programs use different layouts ?
+            setContentView(R.layout.activity_workout_start)
+            /* TODO if no programs use different layouts ?
+                8/4/20 no change. unclear.
+            */
         }
         */
-
-
 
         Log.d("myTag","STARTING activeWorkout programName ${activeWorkout!!.programName}")
         Log.d("myTag","STARTING activeWorkout trainingName ${activeWorkout!!.trainingName}")
@@ -200,18 +213,22 @@ class WorkoutStartActivity : AppCompatActivity() {
 
 
         fabAddBtn.setOnClickListener{
-            addToList(activeWorkout!!, this) // TODO redo addToList to add exercise to workout
+            addToList(activeWorkout!!, this)
+            /* TODO redo addToList to add exercise to workout
+                8/4/20 why?
+             */
         }
         fabAddNotesBtn.setOnClickListener{
             addWorkoutNote(activeWorkout!!, this)
         }
 
-
-
-
-
     }//onCreate END
-    fun addToList(workout: Workout, con:Context){ // TODO Don't delete this?, data changed here while working out should not be saved during workout? -> on end?
+    fun addToList(workout: Workout, con:Context){
+        /* TODO Don't delete this?
+            data changed here while working out should not be saved during workout?
+             save on end?
+            8/4/20 unclear.
+         */
 
         val name="exercise"
 
@@ -243,24 +260,11 @@ class WorkoutStartActivity : AppCompatActivity() {
                     toastCenterShort(this,"Name has to be unique")
                 }
 
-
             } else {
                 toastCenterShort(this,"Name has to be 1-20 characters long")
             }
         }
-
-
-
     }
-
-    /*
-    fun setNextWorkout(workout: Workout){
-        var programName=workout.programName
-        var programName=workout.trainingName
-    }
-
-     */
-
 }
 
 

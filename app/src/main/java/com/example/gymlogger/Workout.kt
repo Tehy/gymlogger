@@ -16,7 +16,9 @@ class Workout{
 
     var notes:String?=null // todo workout notes
 
-    // TODO add generic cardio time var cardio: Int
+    /* TODO add generic cardio time var cardio: Int
+        8/4/20 no change.
+     */
 
     var workoutExerciseList = arrayListOf<Exercise>()   // Trainings exerciseList is base for workout, exercise can be added during workout
 
@@ -35,21 +37,14 @@ class Workout{
 
     //    fun workoutLength(): ArrayList<Int> {
     fun workoutStopTime(): MutableMap<String, String>{
-        //val stopTime        = LocalDateTime.now()
         val workoutDayOfWeek= this.startTimeDayOfWeek.toString()
-
         val workoutDate     = this.startTimeDay.toString()+"/"+this.startTimeMonth.toString()+"/"+this.startTimeYear.toString()
-
-        val stopMillis=System.currentTimeMillis()-startMillis // delta milliseonds
-
-        //val workoutHours    = stopTime.hour     - this.startTimeHour
-        //val workoutHours    = TimeUnit.MILLISECONDS.toHours(stopMillis)//.toString().padStart(2,'0')
+        val stopMillis      = System.currentTimeMillis()-startMillis // delta milliseonds
         val workoutHours    = TimeUnit.MILLISECONDS.toHours(stopMillis).toString().padStart(2,'0')
-
-        //val workoutMinutes  = stopTime.minute   - this.startTimeMinute
-        //val workoutMinutes  = (TimeUnit.MILLISECONDS.toMinutes(stopMillis)%60).toString().padStart(2,'0')
         val workoutMinutes  = (TimeUnit.MILLISECONDS.toMinutes(stopMillis)%60).toString().padStart(2,'0')
-        //val workoutSeconds  = stopTime.second   - this.startTimeSecond //TODO remove seconds after TEST ing
+        /*TODO remove seconds after TEST ing
+            8/4/20 no change.
+         */
         val workoutSeconds  =TimeUnit.MILLISECONDS.toSeconds(stopMillis).toString()
 
         workoutTime.put("dayofweek", workoutDayOfWeek)
@@ -58,6 +53,7 @@ class Workout{
         workoutTime.put("minutes", workoutMinutes)
         workoutTime.put("seconds", workoutSeconds)
 
+        // test logs
         /*
         Log.d("myTag", "workouttime == ${workoutTime}")
         Log.d("myTag", "workouttime dayofweek == ${workoutTime.get("dayofweek")}")
@@ -80,8 +76,6 @@ class Workout{
         this.workoutExerciseList.add(Exercise(name))
 
     }
-
-
 
     fun showWorkoutExercises(){
 

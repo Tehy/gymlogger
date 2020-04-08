@@ -18,6 +18,9 @@ import kotlinx.android.synthetic.main.activity_programs.*
 import kotlinx.android.synthetic.main.dialog_rename_layout.view.*
 
 
+/* TODO REST TIMER
+    8/4/20 no change.
+*/
 class TimerActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()

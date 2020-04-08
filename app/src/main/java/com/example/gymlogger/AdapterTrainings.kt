@@ -41,7 +41,6 @@ class AdapterTrainings(val trainingList: ArrayList<Training>) : RecyclerView.Ada
 
         init {
             itemView.setOnLongClickListener {
-                //dialogRename(itemView, "training", adapterPosition)
                 dialogAskToDelOrRename(itemView, "training", adapterPosition)
                 true
             }
@@ -49,9 +48,7 @@ class AdapterTrainings(val trainingList: ArrayList<Training>) : RecyclerView.Ada
             itemView.setOnClickListener{
 
                 val intent= Intent(itemView.context, exercisesActivity::class.java)
-
                 s.selTraining=adapterPosition     // set clicked item/adapter position(Int) -> navigation/index tracker
-
                 itemView.context.startActivity(intent)
 
             }

@@ -34,6 +34,12 @@ android {
         }
     }
 
+// ? FIX to "Unexpected error while obtaining screenshot from device: java.lang.OutOfMemoryError"
+// taking screenshots with logcat
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
 
 }
 

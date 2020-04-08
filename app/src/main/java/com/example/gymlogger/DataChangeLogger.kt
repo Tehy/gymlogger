@@ -2,6 +2,7 @@ package com.example.gymlogger
 
 import android.util.Log
 
+// used whenever data is changed
 object DataChangeLogger{
     var alteredData = mutableMapOf(
         "programList"   to false,

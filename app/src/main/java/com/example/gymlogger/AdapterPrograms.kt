@@ -16,12 +16,10 @@ class AdapterPrograms(val programList: ArrayList<Program>) : RecyclerView.Adapte
         holder.textName.text = program.programName
 
         val trainingCount: Int = programList[position].trainingList.size
-
+        val trainingCountConcat= trainingCount.toString()+" trainings"
         if(trainingCount > 0){
-            holder.trainings.text=trainingCount.toString()+" trainings"
+            holder.trainings.text=trainingCountConcat
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,20 +40,18 @@ class AdapterPrograms(val programList: ArrayList<Program>) : RecyclerView.Adapte
             itemView.setOnLongClickListener {
                 dialogAskToDelOrRename(itemView, "program", adapterPosition)
 
-                itemView.context //todo wth is this
-
+                itemView.context
+                /*todo what is this?
+                    8/4/20 no change.
+                 */
                 true
             }
 
             itemView.setOnClickListener{
 
-
                 val intent= Intent(itemView.context, TrainingsActivity::class.java)
-
                 intent.putExtra("adapterpos",adapterPosition)
-
                 s.selProgram=adapterPosition    // set clicked item/adapter position(Int) -> navigation/index tracker
-
                 itemView.context.startActivity(intent)
 
             }

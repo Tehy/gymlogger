@@ -46,8 +46,6 @@ class WorkoutsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workouts)
 
-        //workoutsTV.text="Workout exercises"
-
         val recyclerView = programsRV as RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         val adapter = AdapterWorkouts(Workouts.workoutsList)

@@ -43,7 +43,9 @@ class TrainingsActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    //TODO rename ontouchable
+    /*TODO rename ontouchable
+        8/4/20 what? done?
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,10 +74,15 @@ class TrainingsActivity : AppCompatActivity() {
                 val toast = Toast.makeText(this, "Click + to add training", Toast.LENGTH_SHORT)
                 toast.setGravity(Gravity.CENTER,0,0)
                 toast.show()
-                //TODO SHOULD ADD DIALOG BE MANDATORY IF LIST EMPTY?
+                /*TODO SHOULD ADD DIALOG BE MANDATORY IF LIST EMPTY?
+                    8/4/20 no change. probably not.
+                */
                 //addToList("training", this)
             }
-            // IF nav/index set //TODO DONTSHOW?
+            // IF nav/index set
+            /* TODO DONTSHOW?
+                8/4/20 what?
+             */
             /*
             if (s.selTraining != null) {
                 // set text
@@ -89,7 +96,6 @@ class TrainingsActivity : AppCompatActivity() {
             programName.text = "nameError"
             Log.d("mytag", "s.selProgram === ${s.selProgram}")
         }
-
 
         fabAddBtn.setOnClickListener{
             addToList("training",this,null)// add to list and reload activity
