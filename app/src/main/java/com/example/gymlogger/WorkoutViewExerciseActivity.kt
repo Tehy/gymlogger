@@ -62,11 +62,7 @@ class WorkoutViewExerciseActivity : AppCompatActivity() {
         // make variable for selected exercise
         var exercise: Exercise=Workouts.activeWorkout!!.workoutExerciseList[s.selexercise!!]
 
-        //add workset exampledata EXAMPLE DATA EXAMPLEDATA
-        /*todo remove example data
-            8/4/20 i was here.
-         */
-        //exercise.worksetList.add(Workset(5,5,100))
+
 
         // setup recyclerview to show worksets of selected exercise
         val recyclerView = worksetRV as RecyclerView

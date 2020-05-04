@@ -1,5 +1,6 @@
 package com.example.gymlogger
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,7 +55,18 @@ class AdapterWorkoutsViewWorkoutWorksets(val workoutExerciseList: ArrayList<Exer
         init {
             itemView.setOnLongClickListener {
 
-                confDel(itemView.context, "exercise from workout", adapterPosition)
+                //confDel(itemView.context, "exercise from workout", adapterPosition)
+                /*10/4/20
+                try to make longclick open workset view reusing workoutviewexerciseactivity
+                 */
+                itemView.setOnClickListener{
+                    val intent= Intent(itemView.context, WorkoutViewExerciseActivity::class.java)
+                    intent.putExtra("adapterpos",adapterPosition)
+                    intent.putExtra("workoutName",exercise.text)
+
+                    s.selWorkout=adapterPosition
+                    itemView.context.startActivity(intent)
+                }
                 true
             }
 

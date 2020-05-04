@@ -9,6 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SettingsActivity"></activity>
+
+        <receiver
+            android:name=".TimerNotificationActionReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="stop" />
+                <action android:name="pause" />
+                <action android:name="resume" />
+                <action android:name="start" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".TimerExpiredReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,16 +34,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProgramsActivity" android:title="ProgramsActivity"></activity>
-        <activity android:name=".TrainingsActivity" android:title="TrainingsActivity"></activity>
-        <activity android:name=".exercisesActivity" android:title="exercisesActivity"></activity>
-        <activity android:name=".WorkoutsActivity" android:title="WorkoutsActivity"></activity>
-        <activity android:name=".WorkoutStartActivity" android:title="WorkoutStartActivity"></activity>
-        <activity android:name=".WorkoutViewExerciseActivity" android:title="WorkoutStartExerciseActivity"></activity>
-        <activity android:name=".WorkoutsViewWorkoutWorksetsActivity" android:title="WorkoutsViewWorkoutWorksetsActivity"></activity>
-        <activity android:name=".TimerActivity" android:title="TimerActivity"></activity>
-
+        <activity
+            android:name=".ProgramsActivity"
+            android:title="ProgramsActivity" />
+        <activity
+            android:name=".TrainingsActivity"
+            android:title="TrainingsActivity" />
+        <activity
+            android:name=".exercisesActivity"
+            android:title="exercisesActivity" />
+        <activity
+            android:name=".WorkoutsActivity"
+            android:title="WorkoutsActivity" />
+        <activity
+            android:name=".WorkoutStartActivity"
+            android:title="WorkoutStartActivity" />
+        <activity
+            android:name=".WorkoutViewExerciseActivity"
+            android:title="WorkoutStartExerciseActivity" />
+        <activity
+            android:name=".WorkoutsViewWorkoutWorksetsActivity"
+            android:title="WorkoutsViewWorkoutWorksetsActivity" />
+        <activity
+            android:name=".TimerActivity"
+            android:label="@string/app_name" />
     </application>
-
 
 </manifest>

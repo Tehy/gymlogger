@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gymlogger</string>
+    <string name="appbar_scrolling_view_behavior">Where this goes?</string>
 </resources>

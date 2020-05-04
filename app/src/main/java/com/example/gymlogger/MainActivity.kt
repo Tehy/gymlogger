@@ -193,6 +193,11 @@ override fun onCreate(savedInstanceState: Bundle?) { // ONCREATE
     // DEBUG flavor build
     if(Constant.type==Constant.Type.FLAVOR){
 
+        timer_btn.setOnClickListener { // Btn -> TimerActivity
+            var intent = Intent(this, TimerActivity::class.java)
+            startActivity(intent)
+        }
+
         save_test_btn.text="SAVE WO&&programs"
         save_test_btn.setOnClickListener {
             // SAVE DATA TEST / JSON GSON TEST
